@@ -8,10 +8,10 @@ import cityPalace from "./../../public/images/city-palace.jpg";
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const router = useRouter();
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: any) => {
     e.preventDefault();
     try {
       const res = await fetch('http://localhost:8000/login', { // Adjust the URL as necessary

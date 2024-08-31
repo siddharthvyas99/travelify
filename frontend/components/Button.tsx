@@ -7,10 +7,10 @@ type ButtonProps = {
   icon?: string;
   variant: "btn_light_lime";
   width: string;
-  className: string;
+  className?: string;
 };
 
-const Button = ({ type, title, icon, variant, width, className }: ButtonProps) => {
+const Button = ({ type, title, icon, variant, width, className = "" }: ButtonProps) => {
   return (
     <button
       className={`duration-150 rounded-md font-medium my-6 mx-auto px-6 py-3 ${variant} ${className} w-[${width}px]`}

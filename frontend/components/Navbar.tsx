@@ -10,7 +10,7 @@ import logo from "./../public/images/logo/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState({ email: "" });
   const router = useRouter();
 
   const toggleMenu = () => {
@@ -77,7 +77,7 @@ const Navbar = () => {
             />
           </a>
           {
-            currentUser ? (
+            currentUser?.email ? (
               <div>
                 <Dropdown
                   menu={{ items: dropdownItems }}
