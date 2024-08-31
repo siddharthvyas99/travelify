@@ -20,10 +20,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Live link :star2:
 
+- https://travelify-ten.vercel.app/
+
 ## How to open project locally?
 
 Firstly clone this project locally using command below in your IDE:
 
+```bash
+git clone https://github.com/siddharthvyas99/travelify
+```
 
 Secondly type:
 
