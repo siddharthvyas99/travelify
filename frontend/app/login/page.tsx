@@ -1,7 +1,7 @@
 // pages/login.js
 "use client"
 import { useState } from 'react';
-import supabase from '../../lib/supabaseClient';
+// import supabase from '../../lib/supabaseClient';
 import { useRouter } from 'next/navigation';
 import cityPalace from "./../../public/images/city-palace.jpg";
 
