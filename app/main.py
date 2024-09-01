@@ -38,8 +38,6 @@ async def register(user: User):
 
 @app.get("/current_user")
 async def get_current_user(token: str = Depends(oauth2_scheme)):
-    pdb.set_trace()
-    print("hi")
     try:
         user_response = supabase.auth.api.get_user(token)
         if user_response.get("error"):
@@ -52,7 +50,6 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 @app.post("/login")
 async def login(user: User):
     response = supabase.auth.sign_in_with_password({ "email": user.email, "password": user.password })
-    pdb.set_trace()
     if hasattr(response, 'error'):
         raise HTTPException(status_code=401, detail="Invalid credentials")
     return {"message": "Login successful", "session": response.session}

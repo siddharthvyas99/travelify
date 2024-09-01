@@ -29,4 +29,4 @@ RUN pip show gunicorn uvicorn
 # Debugging step: Verify executable paths
 
 # Run the FastAPI app
-CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "main:app"]
+CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "app.main:app"]
