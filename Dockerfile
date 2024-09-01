@@ -8,16 +8,14 @@ RUN npm run build
 
 # Stage 2: Build the FastAPI backend
 FROM python:3.11 AS backend
-WORKDIR /backend
-COPY backend/requirements.txt ./
+WORKDIR /app
 RUN pip install -r requirements.txt
-COPY backend/ ./
 
 # Stage 3: Serve static files with FastAPI
 FROM python:3.11
 WORKDIR /app
-COPY --from=backend /backend /app
-COPY --from=frontend-build /frontend/build /app/frontend/build
+COPY --from=frontend-build /frontend/.next /app/frontend/.next
+COPY --from=frontend-build /frontend/public /app/frontend/public
 
 # Install dependencies
 RUN pip install fastapi uvicorn gunicorn
