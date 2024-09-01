@@ -7,7 +7,7 @@ load_dotenv()
 import os
 from fastapi.middleware.cors import CORSMiddleware
 import pdb;
-from auth import JWTBearer
+# from auth import JWTBearer
 
 app = FastAPI()
 
