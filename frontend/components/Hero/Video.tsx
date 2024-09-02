@@ -6,7 +6,7 @@ const Video = () => {
       loop
       autoPlay
       muted
-      src={"./videos/amber-fort.mp4"}
+      src={"./videos/amber-fort.mov"}
       className="object-cover w-full h-[60vh] lg:h-[80vh]"
     />
   );
