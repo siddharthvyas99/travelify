@@ -18,8 +18,7 @@ FROM python:3.11
 WORKDIR /app
 
 COPY --from=backend /app /app/
-COPY --from=frontend-build /frontend/.next /app/frontend/.next
-COPY --from=frontend-build /frontend/public /app/frontend/public
+COPY --from=frontend-build /frontend/out /app/static
 
 # Install dependencies
 RUN pip install fastapi uvicorn gunicorn

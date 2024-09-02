@@ -7,6 +7,8 @@ load_dotenv()
 import os
 from fastapi.middleware.cors import CORSMiddleware
 import pdb;
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 # from auth import JWTBearer
 
 app = FastAPI()
@@ -26,6 +28,22 @@ supabase: Client = create_client(supabase_url, supabase_key)
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
+# Mount the directory containing the built Next.js application
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Serve the entry point of the Next.js application
+@app.get("/{full_path:path}")
+async def serve_static(full_path: str):
+    # If no path is provided, serve the default Next.js page
+    if not full_path:
+        full_path = "index.html"
+    
+    file_path = os.path.join("static", full_path)
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+    else:
+        # Return a 404 page if the file is not found
+        return FileResponse("static/404.html", status_code=404)
 
 class User(BaseModel):
     email: str
